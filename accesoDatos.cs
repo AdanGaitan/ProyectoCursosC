@@ -29,7 +29,7 @@ namespace AdministradorCursos
             dt = new DataTable();
             dr = null;
             cadenaConexion = strConexion;
-
+            //comentario
         }
         public void conectar()
         {
