@@ -29,7 +29,7 @@ namespace AdministradorCursos
             dt = new DataTable();
             dr = null;
             cadenaConexion = strConexion;
-            //comentario
+            
         }
         public void conectar()
         {
@@ -65,7 +65,7 @@ namespace AdministradorCursos
         public void leerTabla(string tabla)
         {
             conectar();
-            comando.CommandText = "select * from " + tabla;
+            comando.CommandText = "select * from" + tabla;
             dr = comando.ExecuteReader();
         }
         public void actualizar(string sql)
