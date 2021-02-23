@@ -126,6 +126,7 @@ namespace AdministradorCursos
                 var prueba = new CursosDB();
                 prueba.Alumno.Add(new Alumno() { apellido = txtApellido.Text, nombre = txtNombre.Text, telefono = Convert.ToInt32(txtTelefono.Text), direccion = txtDireccion.Text, dni = Convert.ToInt32(txtDni.Text), email = txtEmail.Text });
                 prueba.SaveChanges();
+                MessageBox.Show(" Se a cargado con exito el alumno ");
                 Limpiar();
             }
         }

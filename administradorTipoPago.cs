@@ -22,12 +22,18 @@ namespace AdministradorCursos
             var con = new CursosDB();
             con.TipoPago.Add(new TipoPago { descripcion = txtDescripcion.Text });
             con.SaveChanges();
+            MessageBox.Show("El metodo de pago se a cargado con exito");
             Limpiar();
 
         }
         private void Limpiar()
         {
             txtDescripcion.Clear();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -27,6 +27,7 @@ namespace AdministradorCursos
             var conexion = new CursosDB();
             conexion.Curso.Add(new Curso {descripcion = txtDescripcion.Text,encargado = txtEncargado.Text,duracion=Convert.ToInt32(txtDuracion.Text),costo=Convert.ToDecimal(txtCosto.Text)});
             conexion.SaveChanges();
+            MessageBox.Show("El curso se a cargado con exito");
             limpiar();
         }
         private void limpiar()
