@@ -59,6 +59,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="accesoDatos.cs" />
+    <Compile Include="AdministradorCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministradorCurso.Designer.cs">
+      <DependentUpon>AdministradorCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="administradorTipoPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administradorTipoPago.Designer.cs">
+      <DependentUpon>administradorTipoPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="Alumno.cs">
       <DependentUpon>CursoModel.tt</DependentUpon>
     </Compile>
@@ -100,6 +112,12 @@
     <Compile Include="TipoPago.cs">
       <DependentUpon>CursoModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdministradorCurso.resx">
+      <DependentUpon>AdministradorCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="administradorTipoPago.resx">
+      <DependentUpon>administradorTipoPago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
