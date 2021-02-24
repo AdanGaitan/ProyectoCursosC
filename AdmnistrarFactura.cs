@@ -13,10 +13,19 @@ namespace AdministradorCursos
     public partial class AdmnistrarFactura : Form
     {
         Alumno alunoSelecionado;
+        private DataTable dt;
+        
         public AdmnistrarFactura()
         {
             InitializeComponent();
-            
+            dt = new DataTable();
+            dt.Columns.Add("Estudiante");
+            dt.Columns.Add("Curso");
+            dt.Columns.Add("Descuento");
+            dt.Columns.Add("Total");
+            dt.Columns.Add("Forma de Pago");
+
+            dtDetalleFactura.DataSource = dt;
 
         }
 
@@ -27,8 +36,9 @@ namespace AdministradorCursos
             if(bc.DialogResult == DialogResult.Yes)
             {
                 alunoSelecionado = bc.alumnoSeleccionado;
+                txtEstudiante.Text = $"{alunoSelecionado.nombre} {alunoSelecionado.apellido}";
             }
-            txtEstudiante.Text =$"{alunoSelecionado.nombre} {alunoSelecionado.apellido}";
+           
         }
 
         private void AdmnistrarFactura_Load(object sender, EventArgs e)
@@ -61,9 +71,21 @@ namespace AdministradorCursos
 
             cboCurso.DataSource = listaCurso;
             cboCurso.ValueMember = "idCurso";
-            cboCurso.DisplayMember = "descripcion";
+             cboCurso.DisplayMember = "descripcion";
 
 
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+           
+
+            DataRow row = dt.NewRow();
+            row["Estudiante"] = txtEstudiante.Text;
+            row["Curso"] = cboCurso.SelectedValue.ToString();
+            row["Forma de Pago"] = cboFormaPago.SelectedValue.ToString();
+            dt.Rows.Add(row);
         }
     }
 }

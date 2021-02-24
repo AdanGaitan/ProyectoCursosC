@@ -10,5 +10,12 @@ namespace AdministradorCursos
     {
         public int idCurso { get; set; }
         public string descripcion { get; set; }
+
+        public string toString()
+        {
+            return descripcion;
+        }
+
+
     }
 }

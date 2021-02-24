@@ -36,12 +36,7 @@
             this.cboCurso = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtDetalleFactura = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.Estudiante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FormaPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtDetalleFactura)).BeginInit();
@@ -109,51 +104,23 @@
             // 
             // dtDetalleFactura
             // 
+            this.dtDetalleFactura.AllowUserToDeleteRows = false;
             this.dtDetalleFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtDetalleFactura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Estudiante,
-            this.Curso,
-            this.FormaPago,
-            this.descuento,
-            this.total});
             this.dtDetalleFactura.Location = new System.Drawing.Point(15, 19);
             this.dtDetalleFactura.Name = "dtDetalleFactura";
+            this.dtDetalleFactura.ReadOnly = true;
             this.dtDetalleFactura.Size = new System.Drawing.Size(747, 314);
             this.dtDetalleFactura.TabIndex = 0;
             // 
-            // button1
+            // btnAgregar
             // 
-            this.button1.Location = new System.Drawing.Point(214, 128);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Agregar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // Estudiante
-            // 
-            this.Estudiante.HeaderText = "Estudiante";
-            this.Estudiante.Name = "Estudiante";
-            // 
-            // Curso
-            // 
-            this.Curso.HeaderText = "Curso";
-            this.Curso.Name = "Curso";
-            // 
-            // FormaPago
-            // 
-            this.FormaPago.HeaderText = "Forma de Pago";
-            this.FormaPago.Name = "FormaPago";
-            // 
-            // descuento
-            // 
-            this.descuento.HeaderText = "Descuento";
-            this.descuento.Name = "descuento";
-            // 
-            // total
-            // 
-            this.total.HeaderText = "Total";
-            this.total.Name = "total";
+            this.btnAgregar.Location = new System.Drawing.Point(214, 128);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 7;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // button2
             // 
@@ -171,7 +138,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 528);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cboCurso);
             this.Controls.Add(this.label3);
@@ -199,12 +166,7 @@
         private System.Windows.Forms.ComboBox cboCurso;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dtDetalleFactura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estudiante;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Curso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FormaPago;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descuento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn total;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button button2;
     }
 }
