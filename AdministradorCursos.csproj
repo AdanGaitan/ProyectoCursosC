@@ -58,7 +58,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="accesoDatos.cs" />
+    <Compile Include="administrarCurso.cs" />
+    <Compile Include="admnistrarTipoPago.cs" />
     <Compile Include="AdministradorCurso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +80,12 @@
     </Compile>
     <Compile Include="Alumno.cs">
       <DependentUpon>CursoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Buscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscar.Designer.cs">
+      <DependentUpon>Buscar.cs</DependentUpon>
     </Compile>
     <Compile Include="Curso.cs">
       <DependentUpon>CursoModel.tt</DependentUpon>
@@ -112,6 +119,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>CursoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>CursoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_listarAlumnos_Result.cs">
+      <DependentUpon>CursoModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>CursoModel.tt</DependentUpon>
     </Compile>
@@ -126,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdmnistrarFactura.resx">
       <DependentUpon>AdmnistrarFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buscar.resx">
+      <DependentUpon>Buscar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
