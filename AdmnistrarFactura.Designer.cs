@@ -40,6 +40,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDescuento = new System.Windows.Forms.TextBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtDetalleFactura)).BeginInit();
             this.SuspendLayout();
@@ -154,11 +155,22 @@
             this.txtDescuento.TabIndex = 10;
             this.txtDescuento.Text = "0";
             // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btnImprimir.Location = new System.Drawing.Point(637, 130);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(137, 23);
+            this.btnImprimir.TabIndex = 11;
+            this.btnImprimir.Text = "Emitir Factura";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            // 
             // AdmnistrarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 528);
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.txtDescuento);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button2);
@@ -194,5 +206,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDescuento;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }

@@ -22,6 +22,7 @@ namespace AdministradorCursos
             dt = new DataTable();
             dt.Columns.Add("Estudiante");
             dt.Columns.Add("Curso");
+            dt.Columns.Add("Encargado");
             dt.Columns.Add("Descuento");
             dt.Columns.Add("Total");
             dt.Columns.Add("Forma de Pago");
@@ -84,34 +85,48 @@ namespace AdministradorCursos
             int idPrecio =(int)cboCurso.SelectedValue;
             int totalconDescuento = Convert.ToInt32(txtDescuento.Text);
             decimal total;
+            string encargado;
 
-            row["Estudiante"] = txtEstudiante.Text;
-            row["Curso"] = cboCurso.Text;
-            row["Forma de Pago"] = cboFormaPago.Text;
-            row["Descuento"] = txtDescuento.Text;
-            dt.Rows.Add(row);
-          
-                using (CursosDB bd = new CursosDB())
-                {
-                
-                
-                    Curso cu = bd.Curso.Where(d => d.idCurso == idPrecio).First();
-
-                    total = cu.costo; 
-
-                   
-                
-                
-                }
-
-            if(totalconDescuento != 0 )
+            if (txtEstudiante.Text == "")
             {
-                row["Total"] = (total - (total * totalconDescuento) / 100);
+                MessageBox.Show("Debe Seleccionar un Alumno....");
             }
             else
             {
-                row["Total"] = total;
+                row["Estudiante"] = txtEstudiante.Text;
+
+                row["Curso"] = cboCurso.Text;
+                row["Forma de Pago"] = cboFormaPago.Text;
+                row["Descuento"] = txtDescuento.Text;
+                dt.Rows.Add(row);
+
+                using (CursosDB bd = new CursosDB())
+                {
+
+
+                    Curso cu = bd.Curso.Where(d => d.idCurso == idPrecio).First();
+
+                    total = cu.costo;
+                    encargado = cu.encargado;
+
+
+
+                }
+                row["Encargado"] = encargado;
+
+                if (totalconDescuento != 0)
+                {
+                    row["Total"] = (total - (total * totalconDescuento) / 100);
+                }
+                else
+                {
+                    row["Total"] = total;
+                }
             }
+
+
+            
+           
            
             
           

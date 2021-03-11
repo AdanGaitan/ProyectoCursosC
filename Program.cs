@@ -16,7 +16,7 @@ namespace AdministradorCursos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdmnistrarFactura());
+            Application.Run(new FmrMenu());
         }
     }
 }

@@ -125,6 +125,12 @@
     <Compile Include="Factura.cs">
       <DependentUpon>CursoModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FmrMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmrMenu.Designer.cs">
+      <DependentUpon>FmrMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="FmrReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,9 @@
     <EmbeddedResource Include="CristalPrueba.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CristalPrueba.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FmrMenu.resx">
+      <DependentUpon>FmrMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FmrReport.resx">
       <DependentUpon>FmrReport.cs</DependentUpon>
