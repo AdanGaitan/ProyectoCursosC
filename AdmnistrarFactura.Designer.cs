@@ -38,6 +38,8 @@
             this.dtDetalleFactura = new System.Windows.Forms.DataGridView();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtDescuento = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtDetalleFactura)).BeginInit();
             this.SuspendLayout();
@@ -55,11 +57,13 @@
             // 
             this.txtEstudiante.Location = new System.Drawing.Point(61, 61);
             this.txtEstudiante.Name = "txtEstudiante";
+            this.txtEstudiante.ReadOnly = true;
             this.txtEstudiante.Size = new System.Drawing.Size(116, 20);
             this.txtEstudiante.TabIndex = 1;
             // 
             // cboFormaPago
             // 
+            this.cboFormaPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFormaPago.FormattingEnabled = true;
             this.cboFormaPago.Location = new System.Drawing.Point(61, 128);
             this.cboFormaPago.Name = "cboFormaPago";
@@ -86,6 +90,7 @@
             // 
             // cboCurso
             // 
+            this.cboCurso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCurso.FormattingEnabled = true;
             this.cboCurso.Location = new System.Drawing.Point(396, 62);
             this.cboCurso.Name = "cboCurso";
@@ -132,11 +137,30 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(393, 102);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Descuento :";
+            // 
+            // txtDescuento
+            // 
+            this.txtDescuento.Location = new System.Drawing.Point(396, 130);
+            this.txtDescuento.Name = "txtDescuento";
+            this.txtDescuento.Size = new System.Drawing.Size(52, 20);
+            this.txtDescuento.TabIndex = 10;
+            this.txtDescuento.Text = "0";
+            // 
             // AdmnistrarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 528);
+            this.Controls.Add(this.txtDescuento);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.groupBox1);
@@ -168,5 +192,7 @@
         private System.Windows.Forms.DataGridView dtDetalleFactura;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtDescuento;
     }
 }

@@ -13,7 +13,7 @@ namespace AdministradorCursos
 
         public string toString()
         {
-            return descripcion;
+            return idCurso + descripcion;
         }
 
 

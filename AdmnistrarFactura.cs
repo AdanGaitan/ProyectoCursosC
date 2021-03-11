@@ -13,6 +13,7 @@ namespace AdministradorCursos
     public partial class AdmnistrarFactura : Form
     {
         Alumno alunoSelecionado;
+        Curso precio;
         private DataTable dt;
         
         public AdmnistrarFactura()
@@ -71,7 +72,7 @@ namespace AdministradorCursos
 
             cboCurso.DataSource = listaCurso;
             cboCurso.ValueMember = "idCurso";
-             cboCurso.DisplayMember = "descripcion";
+            cboCurso.DisplayMember = "descripcion";
 
 
         }
@@ -79,13 +80,43 @@ namespace AdministradorCursos
         private void btnAgregar_Click(object sender, EventArgs e)
         {
 
-           
-
             DataRow row = dt.NewRow();
+            int idPrecio =(int)cboCurso.SelectedValue;
+            int totalconDescuento = Convert.ToInt32(txtDescuento.Text);
+            decimal total;
+
             row["Estudiante"] = txtEstudiante.Text;
-            row["Curso"] = cboCurso.SelectedValue.ToString();
-            row["Forma de Pago"] = cboFormaPago.SelectedValue.ToString();
+            row["Curso"] = cboCurso.Text;
+            row["Forma de Pago"] = cboFormaPago.Text;
+            row["Descuento"] = txtDescuento.Text;
             dt.Rows.Add(row);
+          
+                using (CursosDB bd = new CursosDB())
+                {
+                
+                
+                    Curso cu = bd.Curso.Where(d => d.idCurso == idPrecio).First();
+
+                    total = cu.costo; 
+
+                   
+                
+                
+                }
+
+            if(totalconDescuento != 0 )
+            {
+                row["Total"] = (total - (total * totalconDescuento) / 100);
+            }
+            else
+            {
+                row["Total"] = total;
+            }
+           
+            
+          
+
+
         }
     }
 }
