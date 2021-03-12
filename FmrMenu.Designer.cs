@@ -31,14 +31,14 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.administrarCursoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoEditarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tipoDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevoEditarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.administrarAlumnoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarEditarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarCursoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarCursoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tipoDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevoEditarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.editarTipoPagoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.borrarTipoPagoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.administrarAlumnoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarEditarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarAlumnoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarAlumnoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.admnistrarFacturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,9 +83,22 @@
             // nuevoEditarToolStripMenuItem
             // 
             this.nuevoEditarToolStripMenuItem.Name = "nuevoEditarToolStripMenuItem";
-            this.nuevoEditarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevoEditarToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.nuevoEditarToolStripMenuItem.Text = "Agregar Curso";
             this.nuevoEditarToolStripMenuItem.Click += new System.EventHandler(this.nuevoEditarToolStripMenuItem_Click);
+            // 
+            // editarCursoToolStripMenuItem
+            // 
+            this.editarCursoToolStripMenuItem.Name = "editarCursoToolStripMenuItem";
+            this.editarCursoToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.editarCursoToolStripMenuItem.Text = "Editar Curso";
+            this.editarCursoToolStripMenuItem.Click += new System.EventHandler(this.editarCursoToolStripMenuItem_Click);
+            // 
+            // eliminarCursoToolStripMenuItem
+            // 
+            this.eliminarCursoToolStripMenuItem.Name = "eliminarCursoToolStripMenuItem";
+            this.eliminarCursoToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.eliminarCursoToolStripMenuItem.Text = "Eliminar Curso";
             // 
             // tipoDePagosToolStripMenuItem
             // 
@@ -100,9 +113,22 @@
             // nuevoEditarToolStripMenuItem1
             // 
             this.nuevoEditarToolStripMenuItem1.Name = "nuevoEditarToolStripMenuItem1";
-            this.nuevoEditarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.nuevoEditarToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
             this.nuevoEditarToolStripMenuItem1.Text = "Agregar Tipo Pagos";
             this.nuevoEditarToolStripMenuItem1.Click += new System.EventHandler(this.nuevoEditarToolStripMenuItem1_Click);
+            // 
+            // editarTipoPagoToolStripMenuItem
+            // 
+            this.editarTipoPagoToolStripMenuItem.Name = "editarTipoPagoToolStripMenuItem";
+            this.editarTipoPagoToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.editarTipoPagoToolStripMenuItem.Text = "Editar Tipo Pago";
+            this.editarTipoPagoToolStripMenuItem.Click += new System.EventHandler(this.editarTipoPagoToolStripMenuItem_Click);
+            // 
+            // borrarTipoPagoToolStripMenuItem
+            // 
+            this.borrarTipoPagoToolStripMenuItem.Name = "borrarTipoPagoToolStripMenuItem";
+            this.borrarTipoPagoToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.borrarTipoPagoToolStripMenuItem.Text = "Borrar Tipo Pago";
             // 
             // administrarAlumnoToolStripMenuItem
             // 
@@ -117,46 +143,20 @@
             // agregarEditarToolStripMenuItem
             // 
             this.agregarEditarToolStripMenuItem.Name = "agregarEditarToolStripMenuItem";
-            this.agregarEditarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.agregarEditarToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.agregarEditarToolStripMenuItem.Text = "Agregar Alumno";
             this.agregarEditarToolStripMenuItem.Click += new System.EventHandler(this.agregarEditarToolStripMenuItem_Click);
-            // 
-            // editarCursoToolStripMenuItem
-            // 
-            this.editarCursoToolStripMenuItem.Name = "editarCursoToolStripMenuItem";
-            this.editarCursoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.editarCursoToolStripMenuItem.Text = "Editar Curso";
-            this.editarCursoToolStripMenuItem.Click += new System.EventHandler(this.editarCursoToolStripMenuItem_Click);
-            // 
-            // eliminarCursoToolStripMenuItem
-            // 
-            this.eliminarCursoToolStripMenuItem.Name = "eliminarCursoToolStripMenuItem";
-            this.eliminarCursoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.eliminarCursoToolStripMenuItem.Text = "Eliminar Curso";
-            // 
-            // editarTipoPagoToolStripMenuItem
-            // 
-            this.editarTipoPagoToolStripMenuItem.Name = "editarTipoPagoToolStripMenuItem";
-            this.editarTipoPagoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.editarTipoPagoToolStripMenuItem.Text = "Editar Tipo Pago";
-            this.editarTipoPagoToolStripMenuItem.Click += new System.EventHandler(this.editarTipoPagoToolStripMenuItem_Click);
-            // 
-            // borrarTipoPagoToolStripMenuItem
-            // 
-            this.borrarTipoPagoToolStripMenuItem.Name = "borrarTipoPagoToolStripMenuItem";
-            this.borrarTipoPagoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.borrarTipoPagoToolStripMenuItem.Text = "Borrar Tipo Pago";
             // 
             // editarAlumnoToolStripMenuItem
             // 
             this.editarAlumnoToolStripMenuItem.Name = "editarAlumnoToolStripMenuItem";
-            this.editarAlumnoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editarAlumnoToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.editarAlumnoToolStripMenuItem.Text = "Editar Alumno";
             // 
             // eliminarAlumnoToolStripMenuItem
             // 
             this.eliminarAlumnoToolStripMenuItem.Name = "eliminarAlumnoToolStripMenuItem";
-            this.eliminarAlumnoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eliminarAlumnoToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.eliminarAlumnoToolStripMenuItem.Text = "Eliminar Alumno";
             // 
             // admnistrarFacturasToolStripMenuItem
@@ -173,26 +173,26 @@
             // listadoDeFacturaToolStripMenuItem
             // 
             this.listadoDeFacturaToolStripMenuItem.Name = "listadoDeFacturaToolStripMenuItem";
-            this.listadoDeFacturaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listadoDeFacturaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.listadoDeFacturaToolStripMenuItem.Text = "Listado de Factura";
             // 
             // nuevaFacturaToolStripMenuItem
             // 
             this.nuevaFacturaToolStripMenuItem.Name = "nuevaFacturaToolStripMenuItem";
-            this.nuevaFacturaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevaFacturaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.nuevaFacturaToolStripMenuItem.Text = "Nueva Factura";
             this.nuevaFacturaToolStripMenuItem.Click += new System.EventHandler(this.nuevaFacturaToolStripMenuItem_Click);
             // 
             // editarFacturaToolStripMenuItem
             // 
             this.editarFacturaToolStripMenuItem.Name = "editarFacturaToolStripMenuItem";
-            this.editarFacturaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editarFacturaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.editarFacturaToolStripMenuItem.Text = "Editar Factura";
             // 
             // eliminarFacturaToolStripMenuItem
             // 
             this.eliminarFacturaToolStripMenuItem.Name = "eliminarFacturaToolStripMenuItem";
-            this.eliminarFacturaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eliminarFacturaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.eliminarFacturaToolStripMenuItem.Text = "Eliminar Factura";
             // 
             // reportesToolStripMenuItem
@@ -217,6 +217,7 @@
             this.listadoDeAlumnoToolStripMenuItem.Name = "listadoDeAlumnoToolStripMenuItem";
             this.listadoDeAlumnoToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.listadoDeAlumnoToolStripMenuItem.Text = "Listado de Alumno";
+            this.listadoDeAlumnoToolStripMenuItem.Click += new System.EventHandler(this.listadoDeAlumnoToolStripMenuItem_Click);
             // 
             // listadoDeProfesoresToolStripMenuItem
             // 

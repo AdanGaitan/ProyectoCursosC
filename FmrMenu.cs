@@ -52,5 +52,11 @@ namespace AdministradorCursos
             AdmnistrarFactura amf = new AdmnistrarFactura();
             amf.Show();
         }
+
+        private void listadoDeAlumnoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FmrListadoAlumno la = new FmrListadoAlumno();
+            la.ShowDialog();
+        }
     }
 }

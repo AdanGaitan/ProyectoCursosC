@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AdministradorCursos
 {
-    public partial class fmrReporte : Form
+    public partial class FmrListadoAlumno : Form
     {
-        public fmrReporte()
+        public FmrListadoAlumno()
         {
             InitializeComponent();
         }
