@@ -1,6 +1,6 @@
 ﻿namespace AdministradorCursos
 {
-    partial class FmrListadoAlumno
+    partial class fmrListadoCursos
     {
         /// <summary>
         /// Required designer variable.
@@ -28,36 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.crvListadoAlumno = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.crvListadoCursos = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.SuspendLayout();
             // 
-            // crvListadoAlumno
+            // crvListadoCursos
             // 
-            this.crvListadoAlumno.ActiveViewIndex = -1;
-            this.crvListadoAlumno.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crvListadoAlumno.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crvListadoAlumno.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crvListadoAlumno.Location = new System.Drawing.Point(0, 0);
-            this.crvListadoAlumno.Name = "crvListadoAlumno";
-            this.crvListadoAlumno.Size = new System.Drawing.Size(800, 450);
-            this.crvListadoAlumno.TabIndex = 0;
-            this.crvListadoAlumno.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            this.crvListadoCursos.ActiveViewIndex = -1;
+            this.crvListadoCursos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crvListadoCursos.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crvListadoCursos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crvListadoCursos.Location = new System.Drawing.Point(0, 0);
+            this.crvListadoCursos.Name = "crvListadoCursos";
+            this.crvListadoCursos.Size = new System.Drawing.Size(800, 450);
+            this.crvListadoCursos.TabIndex = 0;
+            this.crvListadoCursos.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
-            // FmrListadoAlumno
+            // fmrListadoCursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.crvListadoAlumno);
-            this.Name = "FmrListadoAlumno";
-            this.Text = "Listado de Alumno";
-            this.Load += new System.EventHandler(this.FmrListadoAlumno_Load);
+            this.Controls.Add(this.crvListadoCursos);
+            this.Name = "fmrListadoCursos";
+            this.Text = "Listado de Cursos";
+            this.Load += new System.EventHandler(this.fmrListadoCursos_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer crvListadoAlumno;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crvListadoCursos;
     }
 }

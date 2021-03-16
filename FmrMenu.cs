@@ -58,5 +58,22 @@ namespace AdministradorCursos
             FmrListadoAlumno la = new FmrListadoAlumno();
             la.ShowDialog();
         }
+
+        private void listadoDeProfesoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FmrListadoProfesores lp = new FmrListadoProfesores();
+            lp.ShowDialog();
+        }
+
+        private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fmrListadoCursos lc = new fmrListadoCursos();
+            lc.ShowDialog();
+        }
+
+        private void FmrMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

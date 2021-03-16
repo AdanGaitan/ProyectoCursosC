@@ -53,6 +53,7 @@
             this.reporteDeCursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cursosMasVendidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cursosMenosVendidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -224,12 +225,14 @@
             this.listadoDeProfesoresToolStripMenuItem.Name = "listadoDeProfesoresToolStripMenuItem";
             this.listadoDeProfesoresToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.listadoDeProfesoresToolStripMenuItem.Text = "Listado de Profesores";
+            this.listadoDeProfesoresToolStripMenuItem.Click += new System.EventHandler(this.listadoDeProfesoresToolStripMenuItem_Click);
             // 
             // reporteDeCursosToolStripMenuItem
             // 
             this.reporteDeCursosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cursosMasVendidosToolStripMenuItem,
-            this.cursosMenosVendidosToolStripMenuItem});
+            this.cursosMenosVendidosToolStripMenuItem,
+            this.cursosToolStripMenuItem});
             this.reporteDeCursosToolStripMenuItem.Name = "reporteDeCursosToolStripMenuItem";
             this.reporteDeCursosToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.reporteDeCursosToolStripMenuItem.Text = "Reporte de Cursos";
@@ -246,6 +249,13 @@
             this.cursosMenosVendidosToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.cursosMenosVendidosToolStripMenuItem.Text = "Cursos menos vendidos";
             // 
+            // cursosToolStripMenuItem
+            // 
+            this.cursosToolStripMenuItem.Name = "cursosToolStripMenuItem";
+            this.cursosToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.cursosToolStripMenuItem.Text = "Cursos";
+            this.cursosToolStripMenuItem.Click += new System.EventHandler(this.cursosToolStripMenuItem_Click);
+            // 
             // FmrMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,6 +265,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FmrMenu";
             this.Text = "FmrMenu";
+            this.Load += new System.EventHandler(this.FmrMenu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -289,5 +300,6 @@
         private System.Windows.Forms.ToolStripMenuItem reporteDeCursosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cursosMasVendidosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cursosMenosVendidosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem;
     }
 }

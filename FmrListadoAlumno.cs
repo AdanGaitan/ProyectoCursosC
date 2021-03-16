@@ -16,5 +16,12 @@ namespace AdministradorCursos
         {
             InitializeComponent();
         }
+
+        private void FmrListadoAlumno_Load(object sender, EventArgs e)
+        {
+            Reportes.ListadoAlumno crpAlumno = new Reportes.ListadoAlumno();
+            crvListadoAlumno.ReportSource = null;
+            crvListadoAlumno.ReportSource = crpAlumno;
+        }
     }
 }
