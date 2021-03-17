@@ -37,8 +37,8 @@ namespace AdministradorCursos
 
         private void editarTipoPagoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            administradorTipoPago atp = new administradorTipoPago();
-            atp.Show();
+            FmrEditarTipoPago edp = new FmrEditarTipoPago();
+            edp.ShowDialog();
         }
 
         private void agregarEditarToolStripMenuItem_Click(object sender, EventArgs e)

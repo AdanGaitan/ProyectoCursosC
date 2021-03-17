@@ -125,6 +125,12 @@
     <Compile Include="FmrBuscarCurso.Designer.cs">
       <DependentUpon>FmrBuscarCurso.cs</DependentUpon>
     </Compile>
+    <Compile Include="FmrBuscarTipoPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmrBuscarTipoPago.Designer.cs">
+      <DependentUpon>FmrBuscarTipoPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="FmrEditarAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,12 @@
     </Compile>
     <Compile Include="FmrEditarCurso.Designer.cs">
       <DependentUpon>FmrEditarCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FmrEditarTipoPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmrEditarTipoPago.Designer.cs">
+      <DependentUpon>FmrEditarTipoPago.cs</DependentUpon>
     </Compile>
     <Compile Include="FmrListadoAlumno.cs">
       <SubType>Form</SubType>
@@ -217,11 +229,17 @@
     <EmbeddedResource Include="FmrBuscarCurso.resx">
       <DependentUpon>FmrBuscarCurso.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FmrBuscarTipoPago.resx">
+      <DependentUpon>FmrBuscarTipoPago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FmrEditarAlumno.resx">
       <DependentUpon>FmrEditarAlumno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FmrEditarCurso.resx">
       <DependentUpon>FmrEditarCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FmrEditarTipoPago.resx">
+      <DependentUpon>FmrEditarTipoPago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FmrListadoAlumno.resx">
       <DependentUpon>FmrListadoAlumno.cs</DependentUpon>

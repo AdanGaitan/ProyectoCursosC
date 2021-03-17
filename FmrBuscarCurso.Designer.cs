@@ -41,6 +41,7 @@
             this.dtBusquedaCurso.Name = "dtBusquedaCurso";
             this.dtBusquedaCurso.Size = new System.Drawing.Size(776, 369);
             this.dtBusquedaCurso.TabIndex = 0;
+            this.dtBusquedaCurso.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtBusquedaCurso_CellContentDoubleClick);
             this.dtBusquedaCurso.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtBusquedaCurso_CellDoubleClick);
             // 
             // lblCurso

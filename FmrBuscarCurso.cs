@@ -48,5 +48,10 @@ namespace AdministradorCursos
                 this.DialogResult = DialogResult.Yes;
             }
         }
+
+        private void dtBusquedaCurso_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+          
+        }
     }
 }
