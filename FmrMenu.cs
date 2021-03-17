@@ -31,8 +31,8 @@ namespace AdministradorCursos
 
         private void editarCursoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AdministradorCurso cs = new AdministradorCurso();
-            cs.Show();
+            FmrEditarCurso cs = new FmrEditarCurso();
+            cs.ShowDialog();
         }
 
         private void editarTipoPagoToolStripMenuItem_Click(object sender, EventArgs e)

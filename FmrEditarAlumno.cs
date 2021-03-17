@@ -98,5 +98,10 @@ namespace AdministradorCursos
                 validar(true);
             }
         }
+
+        private void FmrEditarAlumno_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
