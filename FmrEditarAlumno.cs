@@ -59,7 +59,7 @@ namespace AdministradorCursos
                 c.Entry(editarAlum).State = EntityState.Modified;
                 c.SaveChanges();
             }
-            MessageBox.Show("Exito");
+            MessageBox.Show(" Se ha Actualizo el Alumno Con exito ","Actualizacion Exitosa",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
 
         }
@@ -67,14 +67,36 @@ namespace AdministradorCursos
         private void validar(bool x)
         {
             
-                txtNombre.Enabled = !x;
-                txtApellido.Enabled = !x;
-                txtDni.Enabled = !x;
-                txtTelefono.Enabled = !x;
-                txtDireccion.Enabled = !x;
-                txtEmail.Enabled = !x;
+            txtNombre.Enabled = !x;
+            txtApellido.Enabled = !x;
+            txtDni.Enabled = !x;
+            txtTelefono.Enabled = !x;
+            txtDireccion.Enabled = !x;
+            txtEmail.Enabled = !x;
+            btnAceptar.Enabled = !x;
+            btnCancelar.Enabled = !x;
            
             
+        }
+        private void limpiar()
+        {
+            lblCodAlumno.Text ="";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtDni.Text = "";
+            txtTelefono.Text = "";
+            txtDireccion.Text = "";
+            txtEmail.Text = "";
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+           
+           if (MessageBox.Show("Esta Seguro que Desea Cancelar la Operacion"," Cancelar ",MessageBoxButtons.YesNo,MessageBoxIcon.Stop) == DialogResult.Yes)
+            {
+                limpiar();
+                validar(true);
+            }
         }
     }
 }

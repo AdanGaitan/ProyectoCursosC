@@ -72,7 +72,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.btnAceptar);
             this.groupBox1.Controls.Add(this.txtEmail);
@@ -229,6 +229,7 @@
             this.btnCancelar.TabIndex = 15;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // FmrEditarAlumno
             // 
@@ -240,7 +241,7 @@
             this.Controls.Add(this.btnBuscarAlumno);
             this.Controls.Add(this.label1);
             this.Name = "FmrEditarAlumno";
-            this.Text = "FmrEditarAlumno";
+            this.Text = "Editar Alumno";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
