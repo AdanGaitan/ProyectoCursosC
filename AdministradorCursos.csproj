@@ -119,6 +119,12 @@
     <Compile Include="Factura.cs">
       <DependentUpon>CursoModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FmrEditarAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmrEditarAlumno.Designer.cs">
+      <DependentUpon>FmrEditarAlumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="FmrListadoAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Buscar.resx">
       <DependentUpon>Buscar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FmrEditarAlumno.resx">
+      <DependentUpon>FmrEditarAlumno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FmrListadoAlumno.resx">
       <DependentUpon>FmrListadoAlumno.cs</DependentUpon>

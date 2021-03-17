@@ -75,5 +75,11 @@ namespace AdministradorCursos
         {
 
         }
+
+        private void editarAlumnoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FmrEditarAlumno eA = new FmrEditarAlumno();
+            eA.ShowDialog();
+        }
     }
 }
