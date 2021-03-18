@@ -15,12 +15,11 @@ namespace AdministradorCursos
     public partial class Factura
     {
         public int idFactura { get; set; }
-        public int idDetalleFactura { get; set; }
         public int idAlumno { get; set; }
         public int idTipoPago { get; set; }
+        public Nullable<decimal> SumaTotal { get; set; }
     
         public virtual Alumno Alumno { get; set; }
-        public virtual DetalleFactura DetalleFactura { get; set; }
         public virtual TipoPago TipoPago { get; set; }
     }
 }

@@ -14,19 +14,12 @@ namespace AdministradorCursos
     
     public partial class DetalleFactura
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DetalleFactura()
-        {
-            this.Factura = new HashSet<Factura>();
-        }
-    
         public int idDetalleFactura { get; set; }
         public int descuento { get; set; }
         public int idCurso { get; set; }
         public decimal total { get; set; }
+        public Nullable<int> codFactura { get; set; }
     
         public virtual Curso Curso { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Factura> Factura { get; set; }
     }
 }

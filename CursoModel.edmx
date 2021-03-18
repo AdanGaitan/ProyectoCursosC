@@ -35,15 +35,16 @@
           <Property Name="descuento" Type="int" Nullable="false" />
           <Property Name="idCurso" Type="int" Nullable="false" />
           <Property Name="total" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="codFactura" Type="int" />
         </EntityType>
         <EntityType Name="Factura">
           <Key>
             <PropertyRef Name="idFactura" />
           </Key>
           <Property Name="idFactura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idDetalleFactura" Type="int" Nullable="false" />
           <Property Name="idAlumno" Type="int" Nullable="false" />
           <Property Name="idTipoPago" Type="int" Nullable="false" />
+          <Property Name="SumaTotal" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -83,18 +84,6 @@
             </Principal>
             <Dependent Role="Factura">
               <PropertyRef Name="idAlumno" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Factura_DetalleFactura">
-          <End Role="DetalleFactura" Type="Self.DetalleFactura" Multiplicity="1" />
-          <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DetalleFactura">
-              <PropertyRef Name="idDetalleFactura" />
-            </Principal>
-            <Dependent Role="Factura">
-              <PropertyRef Name="idDetalleFactura" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -159,10 +148,6 @@
             <End Role="Alumno" EntitySet="Alumno" />
             <End Role="Factura" EntitySet="Factura" />
           </AssociationSet>
-          <AssociationSet Name="FK_Factura_DetalleFactura" Association="Self.FK_Factura_DetalleFactura">
-            <End Role="DetalleFactura" EntitySet="DetalleFactura" />
-            <End Role="Factura" EntitySet="Factura" />
-          </AssociationSet>
           <AssociationSet Name="FK_Factura_TipoPago" Association="Self.FK_Factura_TipoPago">
             <End Role="TipoPago" EntitySet="TipoPago" />
             <End Role="Factura" EntitySet="Factura" />
@@ -172,142 +157,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CursosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Alumno">
-          <Key>
-            <PropertyRef Name="idAlumno" />
-          </Key>
-          <Property Name="idAlumno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="dni" Type="Int32" />
-          <Property Name="telefono" Type="Int32" Nullable="false" />
-          <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Factura" Relationship="Self.FK_Factura_Alumno" FromRole="Alumno" ToRole="Factura" />
-        </EntityType>
-        <EntityType Name="Curso">
-          <Key>
-            <PropertyRef Name="idCurso" />
-          </Key>
-          <Property Name="idCurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="encargado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="duracion" Type="Int32" Nullable="false" />
-          <Property Name="costo" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <NavigationProperty Name="DetalleFactura" Relationship="Self.FK_DetalleFactura_Curso" FromRole="Curso" ToRole="DetalleFactura" />
-        </EntityType>
-        <EntityType Name="DetalleFactura">
-          <Key>
-            <PropertyRef Name="idDetalleFactura" />
-          </Key>
-          <Property Name="idDetalleFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="descuento" Type="Int32" Nullable="false" />
-          <Property Name="idCurso" Type="Int32" Nullable="false" />
-          <Property Name="total" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <NavigationProperty Name="Curso" Relationship="Self.FK_DetalleFactura_Curso" FromRole="DetalleFactura" ToRole="Curso" />
-          <NavigationProperty Name="Factura" Relationship="Self.FK_Factura_DetalleFactura" FromRole="DetalleFactura" ToRole="Factura" />
-        </EntityType>
-        <EntityType Name="Factura">
-          <Key>
-            <PropertyRef Name="idFactura" />
-          </Key>
-          <Property Name="idFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idDetalleFactura" Type="Int32" Nullable="false" />
-          <Property Name="idAlumno" Type="Int32" Nullable="false" />
-          <Property Name="idTipoPago" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Alumno" Relationship="Self.FK_Factura_Alumno" FromRole="Factura" ToRole="Alumno" />
-          <NavigationProperty Name="DetalleFactura" Relationship="Self.FK_Factura_DetalleFactura" FromRole="Factura" ToRole="DetalleFactura" />
-          <NavigationProperty Name="TipoPago" Relationship="Self.FK_Factura_TipoPago" FromRole="Factura" ToRole="TipoPago" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="TipoPago">
-          <Key>
-            <PropertyRef Name="idTipoPago" />
-          </Key>
-          <Property Name="idTipoPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Factura" Relationship="Self.FK_Factura_TipoPago" FromRole="TipoPago" ToRole="Factura" />
-        </EntityType>
-        <Association Name="FK_Factura_Alumno">
-          <End Role="Alumno" Type="Self.Alumno" Multiplicity="1" />
-          <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Alumno">
-              <PropertyRef Name="idAlumno" />
-            </Principal>
-            <Dependent Role="Factura">
-              <PropertyRef Name="idAlumno" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DetalleFactura_Curso">
-          <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
-          <End Role="DetalleFactura" Type="Self.DetalleFactura" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Curso">
-              <PropertyRef Name="idCurso" />
-            </Principal>
-            <Dependent Role="DetalleFactura">
-              <PropertyRef Name="idCurso" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Factura_DetalleFactura">
-          <End Role="DetalleFactura" Type="Self.DetalleFactura" Multiplicity="1" />
-          <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DetalleFactura">
-              <PropertyRef Name="idDetalleFactura" />
-            </Principal>
-            <Dependent Role="Factura">
-              <PropertyRef Name="idDetalleFactura" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Factura_TipoPago">
-          <End Role="TipoPago" Type="Self.TipoPago" Multiplicity="1" />
-          <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TipoPago">
-              <PropertyRef Name="idTipoPago" />
-            </Principal>
-            <Dependent Role="Factura">
-              <PropertyRef Name="idTipoPago" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="CursosDB" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Alumno" EntityType="Self.Alumno" />
-          <EntitySet Name="Curso" EntityType="Self.Curso" />
-          <EntitySet Name="DetalleFactura" EntityType="Self.DetalleFactura" />
-          <EntitySet Name="Factura" EntityType="Self.Factura" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="TipoPago" EntityType="Self.TipoPago" />
-          <AssociationSet Name="FK_Factura_Alumno" Association="Self.FK_Factura_Alumno">
-            <End Role="Alumno" EntitySet="Alumno" />
-            <End Role="Factura" EntitySet="Factura" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DetalleFactura_Curso" Association="Self.FK_DetalleFactura_Curso">
-            <End Role="Curso" EntitySet="Curso" />
-            <End Role="DetalleFactura" EntitySet="DetalleFactura" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Factura_DetalleFactura" Association="Self.FK_Factura_DetalleFactura">
-            <End Role="DetalleFactura" EntitySet="DetalleFactura" />
-            <End Role="Factura" EntitySet="Factura" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Factura_TipoPago" Association="Self.FK_Factura_TipoPago">
-            <End Role="TipoPago" EntitySet="TipoPago" />
-            <End Role="Factura" EntitySet="Factura" />
-          </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -333,7 +183,7 @@
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_listarAlumnos" ReturnType="Collection(CursosModel.sp_listarAlumnos_Result)">
-            <Parameter Name="busqueda" Mode="In" Type="String" />
+          <Parameter Name="busqueda" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_renamediagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -341,6 +191,24 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="Alumno" EntityType="CursosModel.Alumno" />
+          <EntitySet Name="Curso" EntityType="CursosModel.Curso" />
+          <EntitySet Name="DetalleFactura" EntityType="CursosModel.DetalleFactura" />
+          <EntitySet Name="Factura" EntityType="CursosModel.Factura" />
+          <EntitySet Name="sysdiagrams" EntityType="CursosModel.sysdiagrams" />
+          <EntitySet Name="TipoPago" EntityType="CursosModel.TipoPago" />
+          <AssociationSet Name="FK_Factura_Alumno" Association="CursosModel.FK_Factura_Alumno">
+            <End Role="Alumno" EntitySet="Alumno" />
+            <End Role="Factura" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetalleFactura_Curso" Association="CursosModel.FK_DetalleFactura_Curso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="DetalleFactura" EntitySet="DetalleFactura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factura_TipoPago" Association="CursosModel.FK_Factura_TipoPago">
+            <End Role="TipoPago" EntitySet="TipoPago" />
+            <End Role="Factura" EntitySet="Factura" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -362,75 +230,112 @@
           <Property Type="String" Name="direccion" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="email" Nullable="true" MaxLength="80" />
         </ComplexType>
+        <EntityType Name="Alumno">
+          <Key>
+            <PropertyRef Name="idAlumno" />
+          </Key>
+          <Property Name="idAlumno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="apellido" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dni" Type="Int32" />
+          <Property Name="telefono" Type="Int32" Nullable="false" />
+          <Property Name="direccion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Factura" Relationship="CursosModel.FK_Factura_Alumno" FromRole="Alumno" ToRole="Factura" />
+        </EntityType>
+        <EntityType Name="Curso">
+          <Key>
+            <PropertyRef Name="idCurso" />
+          </Key>
+          <Property Name="idCurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="encargado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="duracion" Type="Int32" Nullable="false" />
+          <Property Name="costo" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <NavigationProperty Name="DetalleFactura" Relationship="CursosModel.FK_DetalleFactura_Curso" FromRole="Curso" ToRole="DetalleFactura" />
+        </EntityType>
+        <EntityType Name="DetalleFactura">
+          <Key>
+            <PropertyRef Name="idDetalleFactura" />
+          </Key>
+          <Property Name="idDetalleFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descuento" Type="Int32" Nullable="false" />
+          <Property Name="idCurso" Type="Int32" Nullable="false" />
+          <Property Name="total" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="codFactura" Type="Int32" />
+          <NavigationProperty Name="Curso" Relationship="CursosModel.FK_DetalleFactura_Curso" FromRole="DetalleFactura" ToRole="Curso" />
+        </EntityType>
+        <EntityType Name="Factura">
+          <Key>
+            <PropertyRef Name="idFactura" />
+          </Key>
+          <Property Name="idFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idAlumno" Type="Int32" Nullable="false" />
+          <Property Name="idTipoPago" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Alumno" Relationship="CursosModel.FK_Factura_Alumno" FromRole="Factura" ToRole="Alumno" />
+          <NavigationProperty Name="TipoPago" Relationship="CursosModel.FK_Factura_TipoPago" FromRole="Factura" ToRole="TipoPago" />
+          <Property Name="SumaTotal" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TipoPago">
+          <Key>
+            <PropertyRef Name="idTipoPago" />
+          </Key>
+          <Property Name="idTipoPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Factura" Relationship="CursosModel.FK_Factura_TipoPago" FromRole="TipoPago" ToRole="Factura" />
+        </EntityType>
+        <Association Name="FK_Factura_Alumno">
+          <End Type="CursosModel.Alumno" Role="Alumno" Multiplicity="1" />
+          <End Type="CursosModel.Factura" Role="Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alumno">
+              <PropertyRef Name="idAlumno" />
+            </Principal>
+            <Dependent Role="Factura">
+              <PropertyRef Name="idAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetalleFactura_Curso">
+          <End Type="CursosModel.Curso" Role="Curso" Multiplicity="1" />
+          <End Type="CursosModel.DetalleFactura" Role="DetalleFactura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="idCurso" />
+            </Principal>
+            <Dependent Role="DetalleFactura">
+              <PropertyRef Name="idCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factura_TipoPago">
+          <End Type="CursosModel.TipoPago" Role="TipoPago" Multiplicity="1" />
+          <End Type="CursosModel.Factura" Role="Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPago">
+              <PropertyRef Name="idTipoPago" />
+            </Principal>
+            <Dependent Role="Factura">
+              <PropertyRef Name="idTipoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="CursosModelStoreContainer" CdmEntityContainer="CursosDB">
-          <EntitySetMapping Name="Alumno">
-            <EntityTypeMapping TypeName="CursosModel.Alumno">
-              <MappingFragment StoreEntitySet="Alumno">
-                <ScalarProperty Name="idAlumno" ColumnName="idAlumno" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="apellido" ColumnName="apellido" />
-                <ScalarProperty Name="dni" ColumnName="dni" />
-                <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="direccion" ColumnName="direccion" />
-                <ScalarProperty Name="email" ColumnName="email" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Curso">
-            <EntityTypeMapping TypeName="CursosModel.Curso">
-              <MappingFragment StoreEntitySet="Curso">
-                <ScalarProperty Name="idCurso" ColumnName="idCurso" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="encargado" ColumnName="encargado" />
-                <ScalarProperty Name="duracion" ColumnName="duracion" />
-                <ScalarProperty Name="costo" ColumnName="costo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DetalleFactura">
-            <EntityTypeMapping TypeName="CursosModel.DetalleFactura">
-              <MappingFragment StoreEntitySet="DetalleFactura">
-                <ScalarProperty Name="idDetalleFactura" ColumnName="idDetalleFactura" />
-                <ScalarProperty Name="descuento" ColumnName="descuento" />
-                <ScalarProperty Name="idCurso" ColumnName="idCurso" />
-                <ScalarProperty Name="total" ColumnName="total" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Factura">
-            <EntityTypeMapping TypeName="CursosModel.Factura">
-              <MappingFragment StoreEntitySet="Factura">
-                <ScalarProperty Name="idFactura" ColumnName="idFactura" />
-                <ScalarProperty Name="idDetalleFactura" ColumnName="idDetalleFactura" />
-                <ScalarProperty Name="idAlumno" ColumnName="idAlumno" />
-                <ScalarProperty Name="idTipoPago" ColumnName="idTipoPago" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="CursosModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TipoPago">
-            <EntityTypeMapping TypeName="CursosModel.TipoPago">
-              <MappingFragment StoreEntitySet="TipoPago">
-                <ScalarProperty Name="idTipoPago" ColumnName="idTipoPago" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="CursosModel.Store.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="CursosModel.Store.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="CursosModel.Store.sp_dropdiagram" />
@@ -468,6 +373,70 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="CursosModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="CursosModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="Alumno">
+            <EntityTypeMapping TypeName="CursosModel.Alumno">
+              <MappingFragment StoreEntitySet="Alumno">
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="dni" ColumnName="dni" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idAlumno" ColumnName="idAlumno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Curso">
+            <EntityTypeMapping TypeName="CursosModel.Curso">
+              <MappingFragment StoreEntitySet="Curso">
+                <ScalarProperty Name="costo" ColumnName="costo" />
+                <ScalarProperty Name="duracion" ColumnName="duracion" />
+                <ScalarProperty Name="encargado" ColumnName="encargado" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="idCurso" ColumnName="idCurso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetalleFactura">
+            <EntityTypeMapping TypeName="CursosModel.DetalleFactura">
+              <MappingFragment StoreEntitySet="DetalleFactura">
+                <ScalarProperty Name="codFactura" ColumnName="codFactura" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="idCurso" ColumnName="idCurso" />
+                <ScalarProperty Name="descuento" ColumnName="descuento" />
+                <ScalarProperty Name="idDetalleFactura" ColumnName="idDetalleFactura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Factura">
+            <EntityTypeMapping TypeName="CursosModel.Factura">
+              <MappingFragment StoreEntitySet="Factura">
+                <ScalarProperty Name="SumaTotal" ColumnName="SumaTotal" />
+                <ScalarProperty Name="idTipoPago" ColumnName="idTipoPago" />
+                <ScalarProperty Name="idAlumno" ColumnName="idAlumno" />
+                <ScalarProperty Name="idFactura" ColumnName="idFactura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CursosModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoPago">
+            <EntityTypeMapping TypeName="CursosModel.TipoPago">
+              <MappingFragment StoreEntitySet="TipoPago">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="idTipoPago" ColumnName="idTipoPago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

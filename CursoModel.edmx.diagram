@@ -5,16 +5,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="1613d0b0d2db4a7b962fe46123e5973d" Name="Diagram1">
-        <EntityTypeShape EntityType="CursosModel.Alumno" Width="1.5" PointX="1.5" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="CursosModel.Curso" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="CursosModel.DetalleFactura" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="CursosModel.Factura" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="CursosModel.sysdiagrams" Width="1.5" PointX="7.25" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CursosModel.TipoPago" Width="1.5" PointX="5" PointY="4.5" IsExpanded="true" />
-        <AssociationConnector Association="CursosModel.FK_Factura_Alumno" ManuallyRouted="false" />
-        <AssociationConnector Association="CursosModel.FK_DetalleFactura_Curso" ManuallyRouted="false" />
-        <AssociationConnector Association="CursosModel.FK_Factura_DetalleFactura" ManuallyRouted="false" />
-        <AssociationConnector Association="CursosModel.FK_Factura_TipoPago" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CursosModel.Alumno" Width="1.5" PointX="0.75" PointY="5.25" />
+        <EntityTypeShape EntityType="CursosModel.Curso" Width="1.5" PointX="2.75" PointY="3.875" />
+        <EntityTypeShape EntityType="CursosModel.DetalleFactura" Width="1.5" PointX="5" PointY="3.875" />
+        <EntityTypeShape EntityType="CursosModel.Factura" Width="1.5" PointX="3" PointY="0.875" />
+        <EntityTypeShape EntityType="CursosModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CursosModel.TipoPago" Width="1.5" PointX="0.75" PointY="1.125" />
+        <AssociationConnector Association="CursosModel.FK_Factura_Alumno" />
+        <AssociationConnector Association="CursosModel.FK_DetalleFactura_Curso" />
+        <AssociationConnector Association="CursosModel.FK_Factura_TipoPago" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

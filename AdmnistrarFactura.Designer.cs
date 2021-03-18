@@ -41,14 +41,19 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtDescuento = new System.Windows.Forms.TextBox();
             this.btnImprimir = new System.Windows.Forms.Button();
+            this.lblCodigoEstudiante = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtSumaTotal = new System.Windows.Forms.TextBox();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtDetalleFactura)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(58, 31);
+            this.label1.Location = new System.Drawing.Point(22, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 0;
@@ -56,7 +61,7 @@
             // 
             // txtEstudiante
             // 
-            this.txtEstudiante.Location = new System.Drawing.Point(61, 61);
+            this.txtEstudiante.Location = new System.Drawing.Point(120, 22);
             this.txtEstudiante.Name = "txtEstudiante";
             this.txtEstudiante.ReadOnly = true;
             this.txtEstudiante.Size = new System.Drawing.Size(116, 20);
@@ -66,7 +71,7 @@
             // 
             this.cboFormaPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFormaPago.FormattingEnabled = true;
-            this.cboFormaPago.Location = new System.Drawing.Point(61, 128);
+            this.cboFormaPago.Location = new System.Drawing.Point(482, 14);
             this.cboFormaPago.Name = "cboFormaPago";
             this.cboFormaPago.Size = new System.Drawing.Size(116, 21);
             this.cboFormaPago.TabIndex = 2;
@@ -74,7 +79,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(58, 102);
+            this.label2.Location = new System.Drawing.Point(391, 17);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 13);
             this.label2.TabIndex = 3;
@@ -83,7 +88,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(393, 31);
+            this.label3.Location = new System.Drawing.Point(22, 72);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 13);
             this.label3.TabIndex = 4;
@@ -93,7 +98,7 @@
             // 
             this.cboCurso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCurso.FormattingEnabled = true;
-            this.cboCurso.Location = new System.Drawing.Point(396, 62);
+            this.cboCurso.Location = new System.Drawing.Point(135, 69);
             this.cboCurso.Name = "cboCurso";
             this.cboCurso.Size = new System.Drawing.Size(134, 21);
             this.cboCurso.TabIndex = 5;
@@ -110,17 +115,20 @@
             // 
             // dtDetalleFactura
             // 
+            this.dtDetalleFactura.AllowUserToAddRows = false;
             this.dtDetalleFactura.AllowUserToDeleteRows = false;
+            this.dtDetalleFactura.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtDetalleFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtDetalleFactura.Location = new System.Drawing.Point(15, 19);
             this.dtDetalleFactura.Name = "dtDetalleFactura";
             this.dtDetalleFactura.ReadOnly = true;
+            this.dtDetalleFactura.RowHeadersVisible = false;
             this.dtDetalleFactura.Size = new System.Drawing.Size(747, 314);
             this.dtDetalleFactura.TabIndex = 0;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(214, 128);
+            this.btnAgregar.Location = new System.Drawing.Point(394, 148);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 7;
@@ -130,7 +138,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(214, 58);
+            this.button2.Location = new System.Drawing.Point(251, 20);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 8;
@@ -141,7 +149,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(393, 102);
+            this.label4.Location = new System.Drawing.Point(391, 63);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 13);
             this.label4.TabIndex = 9;
@@ -149,7 +157,7 @@
             // 
             // txtDescuento
             // 
-            this.txtDescuento.Location = new System.Drawing.Point(396, 130);
+            this.txtDescuento.Location = new System.Drawing.Point(482, 60);
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.Size = new System.Drawing.Size(52, 20);
             this.txtDescuento.TabIndex = 10;
@@ -158,35 +166,78 @@
             // btnImprimir
             // 
             this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btnImprimir.Location = new System.Drawing.Point(637, 130);
+            this.btnImprimir.Location = new System.Drawing.Point(604, 12);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(137, 23);
             this.btnImprimir.TabIndex = 11;
             this.btnImprimir.Text = "Emitir Factura";
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // lblCodigoEstudiante
+            // 
+            this.lblCodigoEstudiante.AutoSize = true;
+            this.lblCodigoEstudiante.Location = new System.Drawing.Point(91, 25);
+            this.lblCodigoEstudiante.Name = "lblCodigoEstudiante";
+            this.lblCodigoEstudiante.Size = new System.Drawing.Size(13, 13);
+            this.lblCodigoEstudiante.TabIndex = 12;
+            this.lblCodigoEstudiante.Text = "0";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.lblCodigoEstudiante);
+            this.groupBox2.Controls.Add(this.txtEstudiante);
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.cboCurso);
+            this.groupBox2.Location = new System.Drawing.Point(27, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(342, 168);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Seleccione";
+            // 
+            // txtSumaTotal
+            // 
+            this.txtSumaTotal.Location = new System.Drawing.Point(674, 148);
+            this.txtSumaTotal.Name = "txtSumaTotal";
+            this.txtSumaTotal.ReadOnly = true;
+            this.txtSumaTotal.Size = new System.Drawing.Size(100, 20);
+            this.txtSumaTotal.TabIndex = 14;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(621, 151);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(37, 13);
+            this.lblTotal.TabIndex = 15;
+            this.lblTotal.Text = "Total :";
             // 
             // AdmnistrarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 528);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.txtSumaTotal);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.txtDescuento);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.cboCurso);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cboFormaPago);
-            this.Controls.Add(this.txtEstudiante);
-            this.Controls.Add(this.label1);
             this.Name = "AdmnistrarFactura";
-            this.Text = "AdmnistrarFactura";
+            this.Text = "Admnistrar Factura";
             this.Load += new System.EventHandler(this.AdmnistrarFactura_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtDetalleFactura)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,5 +258,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDescuento;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Label lblCodigoEstudiante;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txtSumaTotal;
+        private System.Windows.Forms.Label lblTotal;
     }
 }
