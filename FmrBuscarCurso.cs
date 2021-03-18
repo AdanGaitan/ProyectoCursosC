@@ -36,7 +36,7 @@ namespace AdministradorCursos
 
         private void txtNombreCurso_KeyPress(object sender, KeyPressEventArgs e)
         {
-            llenarTabla();
+          
         }
 
         private void dtBusquedaCurso_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -52,6 +52,16 @@ namespace AdministradorCursos
         private void dtBusquedaCurso_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
           
+        }
+
+        private void dtBusquedaCurso_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void txtNombreCurso_KeyUp(object sender, KeyEventArgs e)
+        {
+            llenarTabla();
         }
     }
 }

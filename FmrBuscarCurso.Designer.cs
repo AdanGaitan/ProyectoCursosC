@@ -43,6 +43,7 @@
             this.dtBusquedaCurso.TabIndex = 0;
             this.dtBusquedaCurso.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtBusquedaCurso_CellContentDoubleClick);
             this.dtBusquedaCurso.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtBusquedaCurso_CellDoubleClick);
+            this.dtBusquedaCurso.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dtBusquedaCurso_KeyUp);
             // 
             // lblCurso
             // 
@@ -61,6 +62,7 @@
             this.txtNombreCurso.Size = new System.Drawing.Size(239, 20);
             this.txtNombreCurso.TabIndex = 2;
             this.txtNombreCurso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreCurso_KeyPress);
+            this.txtNombreCurso.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNombreCurso_KeyUp);
             // 
             // FmrBuscarCurso
             // 

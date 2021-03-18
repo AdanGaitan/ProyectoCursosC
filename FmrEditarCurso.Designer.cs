@@ -227,7 +227,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblCodCurso;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnAceptar;
+        public System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
     }
 }

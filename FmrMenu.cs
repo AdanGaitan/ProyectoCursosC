@@ -81,5 +81,13 @@ namespace AdministradorCursos
             FmrEditarAlumno eA = new FmrEditarAlumno();
             eA.ShowDialog();
         }
+
+        private void eliminarCursoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FmrEditarCurso edic = new FmrEditarCurso();
+            edic.btnAceptar.Text = "Eliminar" ;
+            edic.ShowDialog();
+           
+        }
     }
 }

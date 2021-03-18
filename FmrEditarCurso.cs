@@ -32,25 +32,64 @@ namespace AdministradorCursos
                 txtEncargado.Text = cursoSelecc.encargado;
                 txtDuracion.Text = cursoSelecc.duracion.ToString();
                 txtCosto.Text = cursoSelecc.costo.ToString();
+                
+            
+            
+            }
+            if (btnAceptar.Text == "Aceptar")
+            {
                 Anular(false);
             }
+            else if (btnAceptar.Text == "Eliminar")
+            {
 
+                txtCosto.Enabled = false;
+                txtDescripcion.Enabled = false;
+                txtDuracion.Enabled = false;
+                txtEncargado.Enabled = false;
+                btnAceptar.Enabled = true;
+                btnCancelar.Enabled = true;
+            }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            using (CursosDB bd = new CursosDB())
+
+            if (btnAceptar.Text == "Aceptar")
             {
-                cursoSelecc.descripcion = txtDescripcion.Text;
-                cursoSelecc.encargado = txtEncargado.Text;
-                cursoSelecc.duracion = Convert.ToInt32(txtDuracion.Text);
-                cursoSelecc.costo = Convert.ToDecimal(txtCosto.Text);
+                using (CursosDB bd = new CursosDB())
+                {
+                    cursoSelecc.descripcion = txtDescripcion.Text;
+                    cursoSelecc.encargado = txtEncargado.Text;
+                    cursoSelecc.duracion = Convert.ToInt32(txtDuracion.Text);
+                    cursoSelecc.costo = Convert.ToDecimal(txtCosto.Text);
 
-                bd.Entry(cursoSelecc).State = EntityState.Modified;
-                bd.SaveChanges();
+                    bd.Entry(cursoSelecc).State = EntityState.Modified;
+                    bd.SaveChanges();
+                }
+                MessageBox.Show("Se ha actualizado con exito el Curso", "Actualizacion con Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            MessageBox.Show("Se ha actualizado con exito el Curso","Actualizacion con Exito",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            else if (btnAceptar.Text == "Eliminar") {
 
+
+                if (MessageBox.Show("Desea eliminar el Curso ?", "Atencion !!!", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                {
+                    using (CursosDB bd = new CursosDB())
+                    {
+
+                        cursoSelecc.descripcion = "Anulado";
+                        cursoSelecc.encargado = txtEncargado.Text;
+                        cursoSelecc.duracion = Convert.ToInt32(txtDuracion.Text);
+                        cursoSelecc.costo = Convert.ToDecimal(txtCosto.Text);
+
+                        bd.Entry(cursoSelecc).State = EntityState.Modified;
+                        bd.SaveChanges();
+                    }
+                    MessageBox.Show("Se ha Eliminado con exito el Curso", "Eliminacion con Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    limpiar();
+                }
+            }
+            
         }
         public void Anular(bool x)
         {
