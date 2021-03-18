@@ -136,6 +136,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnAceptar;
+        public System.Windows.Forms.Button btnAceptar;
     }
 }

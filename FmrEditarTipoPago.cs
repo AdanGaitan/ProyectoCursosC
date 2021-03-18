@@ -28,7 +28,18 @@ namespace AdministradorCursos
             {
                 tpSelecci = btp.tipoPagoSeleccionado;
                 txtDescripcion.Text = tpSelecci.descripcion;
+               
+            }
+
+            if (btnAceptar.Text == "Aceptar")
+            {
                 habilitar(false);
+            }
+            else if (btnAceptar.Text == "Eliminar")
+            {
+                txtDescripcion.Enabled = false;
+                btnAceptar.Enabled = true;
+                btnCancelar.Enabled = true;
             }
         }
 
@@ -39,13 +50,35 @@ namespace AdministradorCursos
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            using (CursosDB bd = new CursosDB())
+            if (btnAceptar.Text == "Aceptar")
             {
-                tpSelecci.descripcion = txtDescripcion.Text;
-                bd.Entry(tpSelecci).State = EntityState.Modified;
-                bd.SaveChanges();
+                if (MessageBox.Show("Esta seguro que quiere editar el tipo de pago??","Editar",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes) 
+                {
+                    using (CursosDB bd = new CursosDB())
+                    {
+                        tpSelecci.descripcion = txtDescripcion.Text;
+                        bd.Entry(tpSelecci).State = EntityState.Modified;
+                        bd.SaveChanges();
+                    }
+
+                    MessageBox.Show(" Se Completo con exito ", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            MessageBox.Show(" Se Completo con exito ","Exito",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            else if (btnAceptar.Text == "Eliminar")
+            {
+                if (MessageBox.Show("Esta seguro que desea eliminar la forma de pago ??","Eliminar",MessageBoxButtons.YesNo,MessageBoxIcon.Error) == DialogResult.Yes) 
+                {
+                    using (CursosDB bd = new CursosDB())
+                    {
+                        tpSelecci.descripcion =$"{txtDescripcion.Text} {"Anulado"}";
+                        bd.Entry(tpSelecci).State = EntityState.Modified;
+                        bd.SaveChanges();
+                    }
+
+                    MessageBox.Show(" Se ha eliminado con exito ", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtDescripcion.Text = "";
+                }
+            }
         }
 
         private void habilitar(bool x)

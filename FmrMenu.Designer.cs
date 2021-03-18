@@ -130,7 +130,8 @@
             // 
             this.borrarTipoPagoToolStripMenuItem.Name = "borrarTipoPagoToolStripMenuItem";
             this.borrarTipoPagoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.borrarTipoPagoToolStripMenuItem.Text = "Borrar Tipo Pago";
+            this.borrarTipoPagoToolStripMenuItem.Text = "Eliminar Tipo Pago";
+            this.borrarTipoPagoToolStripMenuItem.Click += new System.EventHandler(this.borrarTipoPagoToolStripMenuItem_Click);
             // 
             // administrarAlumnoToolStripMenuItem
             // 
@@ -161,6 +162,7 @@
             this.eliminarAlumnoToolStripMenuItem.Name = "eliminarAlumnoToolStripMenuItem";
             this.eliminarAlumnoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.eliminarAlumnoToolStripMenuItem.Text = "Eliminar Alumno";
+            this.eliminarAlumnoToolStripMenuItem.Click += new System.EventHandler(this.eliminarAlumnoToolStripMenuItem_Click);
             // 
             // admnistrarFacturasToolStripMenuItem
             // 

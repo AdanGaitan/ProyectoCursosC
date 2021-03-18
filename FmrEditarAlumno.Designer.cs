@@ -256,7 +256,7 @@
         private System.Windows.Forms.Button btnBuscarAlumno;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnAceptar;
+        public System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label label4;

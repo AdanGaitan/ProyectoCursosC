@@ -89,5 +89,20 @@ namespace AdministradorCursos
             edic.ShowDialog();
            
         }
+
+        private void borrarTipoPagoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FmrEditarTipoPago edtp = new FmrEditarTipoPago();
+            edtp.btnAceptar.Text = "Eliminar";
+            edtp.ShowDialog();
+            
+        }
+
+        private void eliminarAlumnoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FmrEditarAlumno eliAlu = new FmrEditarAlumno();
+            eliAlu.btnAceptar.Text = "Eliminar";
+            eliAlu.ShowDialog();
+        }
     }
 }

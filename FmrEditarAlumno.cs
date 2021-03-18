@@ -29,7 +29,7 @@ namespace AdministradorCursos
 
             if(buscarAlumno.DialogResult == DialogResult.Yes)
             {
-                validar(false);
+               
                 editarAlum = buscarAlumno.alumnoSeleccionado;
                 lblCodAlumno.Text = editarAlum.idAlumno.ToString();  
                 txtNombre.Text = editarAlum.nombre;
@@ -41,26 +41,67 @@ namespace AdministradorCursos
                 
 
             }
+            if (btnAceptar.Text == "Aceptar")
+            {
+                validar(false);
+            }
+            else if (btnAceptar.Text == "Eliminar")
+            {
+                txtNombre.Enabled = false;
+                txtApellido.Enabled = false;
+                txtDni.Enabled = false;
+                txtTelefono.Enabled = false;
+                txtDireccion.Enabled = false;
+                txtEmail.Enabled = false;
+                btnAceptar.Enabled = true;
+                btnCancelar.Enabled = true;
+            }
+
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-
-            using (CursosDB c = new CursosDB())
+            if (btnAceptar.Text =="Aceptar") 
             {
+                if (MessageBox.Show("Esta Seguro de Modificar el Alumno ??","Modifica",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes) 
+                {
+                    using (CursosDB c = new CursosDB())
+                    {
 
-                editarAlum.nombre = txtNombre.Text;
-                editarAlum.apellido = txtApellido.Text ;
-                editarAlum.dni=Convert.ToInt32(txtDni.Text);
-                editarAlum.telefono =Convert.ToInt32(txtTelefono.Text);
-                editarAlum.direccion = txtDireccion.Text;
-                editarAlum.email = txtEmail.Text;
+                        editarAlum.nombre = txtNombre.Text;
+                        editarAlum.apellido = txtApellido.Text;
+                        editarAlum.dni = Convert.ToInt32(txtDni.Text);
+                        editarAlum.telefono = Convert.ToInt32(txtTelefono.Text);
+                        editarAlum.direccion = txtDireccion.Text;
+                        editarAlum.email = txtEmail.Text;
 
-                c.Entry(editarAlum).State = EntityState.Modified;
-                c.SaveChanges();
+                        c.Entry(editarAlum).State = EntityState.Modified;
+                        c.SaveChanges();
+                    }
+                    MessageBox.Show(" Se ha Actualizo el Alumno Con exito ", "Actualizacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            MessageBox.Show(" Se ha Actualizo el Alumno Con exito ","Actualizacion Exitosa",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            else if (btnAceptar.Text =="Eliminar")
+            {
+                if (MessageBox.Show("Esta seguro que quiere eliminar el Alumno ???","Eliminar",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
+                {
+                    using (CursosDB c = new CursosDB())
+                    {
 
+                        editarAlum.nombre = $"{txtNombre.Text} {"Anulado"}";
+                        editarAlum.apellido = txtApellido.Text;
+                        editarAlum.dni = Convert.ToInt32(txtDni.Text);
+                        editarAlum.telefono = Convert.ToInt32(txtTelefono.Text);
+                        editarAlum.direccion = txtDireccion.Text;
+                        editarAlum.email = txtEmail.Text;
+
+                        c.Entry(editarAlum).State = EntityState.Modified;
+                        c.SaveChanges();
+                    }
+                    MessageBox.Show(" Se ha Eliminado el Alumno Con exito ", "Eliminacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    limpiar();
+                }
+            }
 
         }
 
