@@ -83,7 +83,14 @@ namespace AdministradorCursos
             cboCurso.ValueMember = "idCurso";
             cboCurso.DisplayMember = "descripcion";
 
-            
+
+            AnularBoton();
+
+
+
+
+
+            lblFecha.Text = DateTime.Now.Date.ToShortDateString();
 
             DataGridViewColumn idAlum = dtDetalleFactura.Columns["idAlumno"];
             idAlum.Visible = false;
@@ -150,9 +157,32 @@ namespace AdministradorCursos
 
                
                 txtSumaTotal.Text = SumaTotal.ToString();
+
+
+                AnularBoton();
+
             }
           
+            
 
+        }
+
+
+        private void AnularBoton()
+        {
+            int r=0;
+            foreach (DataRow item in dt.Rows)
+            {
+                r = dt.Rows.Count;
+            }
+            if (r > 0)
+            {
+                btnGuardar.Enabled = true;
+            }
+            else if(r == 0)
+            {
+                btnGuardar.Enabled = false;
+            }
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
@@ -180,6 +210,7 @@ namespace AdministradorCursos
                 fa.idAlumno = Convert.ToInt32(lblCodigoEstudiante.Text);
                 fa.idTipoPago = (int)cboFormaPago.SelectedValue;
                 fa.SumaTotal = Convert.ToDecimal(txtSumaTotal.Text);
+                fa.Fecha = lblFecha.Text;
                 bd.Factura.Add(fa);
                 bd.SaveChanges();
             }
@@ -217,6 +248,40 @@ namespace AdministradorCursos
             }
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Desea el eliminar este la fila","Advertencia",MessageBoxButtons.YesNo,MessageBoxIcon.Stop) == DialogResult.Yes)
+            {
+                dtDetalleFactura.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dtDetalleFactura.Rows.Remove(dtDetalleFactura.CurrentRow);
+                dtDetalleFactura.Refresh();
+
+                if(dtDetalleFactura.SelectionMode == DataGridViewSelectionMode.FullRowSelect)
+                {
+                    dtDetalleFactura.SelectionMode = DataGridViewSelectionMode.CellSelect;
+
+                    decimal SumaTotal = 0;
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        string totalS = (string)item["Total"];
+
+                        SumaTotal = SumaTotal + Convert.ToDecimal(totalS);
+                    }
+
+
+                    txtSumaTotal.Text = SumaTotal.ToString();
+
+                }
+            }
+            AnularBoton();
+
+        }
+
+        private void btnImprimir_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
 
         //private void TomarDatos()
         //{
@@ -247,7 +312,7 @@ namespace AdministradorCursos
         //    //    //string formapago = (string)item.Cells[5].Value;
 
 
-               
+
         //    //}
 
 

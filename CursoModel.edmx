@@ -45,6 +45,7 @@
           <Property Name="idAlumno" Type="int" Nullable="false" />
           <Property Name="idTipoPago" Type="int" Nullable="false" />
           <Property Name="SumaTotal" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Fecha" Type="nvarchar" MaxLength="40" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -275,6 +276,7 @@
           <NavigationProperty Name="Alumno" Relationship="CursosModel.FK_Factura_Alumno" FromRole="Factura" ToRole="Alumno" />
           <NavigationProperty Name="TipoPago" Relationship="CursosModel.FK_Factura_TipoPago" FromRole="Factura" ToRole="TipoPago" />
           <Property Name="SumaTotal" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Fecha" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -411,6 +413,7 @@
           <EntitySetMapping Name="Factura">
             <EntityTypeMapping TypeName="CursosModel.Factura">
               <MappingFragment StoreEntitySet="Factura">
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
                 <ScalarProperty Name="SumaTotal" ColumnName="SumaTotal" />
                 <ScalarProperty Name="idTipoPago" ColumnName="idTipoPago" />
                 <ScalarProperty Name="idAlumno" ColumnName="idAlumno" />

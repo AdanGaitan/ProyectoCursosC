@@ -18,6 +18,7 @@ namespace AdministradorCursos
         public int idAlumno { get; set; }
         public int idTipoPago { get; set; }
         public Nullable<decimal> SumaTotal { get; set; }
+        public string Fecha { get; set; }
     
         public virtual Alumno Alumno { get; set; }
         public virtual TipoPago TipoPago { get; set; }

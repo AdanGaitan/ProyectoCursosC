@@ -40,11 +40,15 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDescuento = new System.Windows.Forms.TextBox();
-            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.lblCodigoEstudiante = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtSumaTotal = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtDetalleFactura)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -53,7 +57,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 25);
+            this.label1.Location = new System.Drawing.Point(18, 64);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 0;
@@ -61,10 +65,10 @@
             // 
             // txtEstudiante
             // 
-            this.txtEstudiante.Location = new System.Drawing.Point(120, 22);
+            this.txtEstudiante.Location = new System.Drawing.Point(131, 61);
             this.txtEstudiante.Name = "txtEstudiante";
             this.txtEstudiante.ReadOnly = true;
-            this.txtEstudiante.Size = new System.Drawing.Size(116, 20);
+            this.txtEstudiante.Size = new System.Drawing.Size(186, 20);
             this.txtEstudiante.TabIndex = 1;
             // 
             // cboFormaPago
@@ -88,7 +92,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 72);
+            this.label3.Location = new System.Drawing.Point(18, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 13);
             this.label3.TabIndex = 4;
@@ -98,9 +102,9 @@
             // 
             this.cboCurso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCurso.FormattingEnabled = true;
-            this.cboCurso.Location = new System.Drawing.Point(135, 69);
+            this.cboCurso.Location = new System.Drawing.Point(131, 27);
             this.cboCurso.Name = "cboCurso";
-            this.cboCurso.Size = new System.Drawing.Size(134, 21);
+            this.cboCurso.Size = new System.Drawing.Size(127, 21);
             this.cboCurso.TabIndex = 5;
             // 
             // groupBox1
@@ -123,12 +127,14 @@
             this.dtDetalleFactura.Name = "dtDetalleFactura";
             this.dtDetalleFactura.ReadOnly = true;
             this.dtDetalleFactura.RowHeadersVisible = false;
+            this.dtDetalleFactura.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dtDetalleFactura.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dtDetalleFactura.Size = new System.Drawing.Size(747, 314);
             this.dtDetalleFactura.TabIndex = 0;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(394, 148);
+            this.btnAgregar.Location = new System.Drawing.Point(380, 148);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 7;
@@ -138,7 +144,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(251, 20);
+            this.button2.Location = new System.Drawing.Point(131, 101);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 8;
@@ -163,21 +169,21 @@
             this.txtDescuento.TabIndex = 10;
             this.txtDescuento.Text = "0";
             // 
-            // btnImprimir
+            // btnGuardar
             // 
-            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btnImprimir.Location = new System.Drawing.Point(604, 12);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(137, 23);
-            this.btnImprimir.TabIndex = 11;
-            this.btnImprimir.Text = "Emitir Factura";
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btnGuardar.Location = new System.Drawing.Point(558, 148);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(137, 23);
+            this.btnGuardar.TabIndex = 11;
+            this.btnGuardar.Text = "Guardar Factura";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // lblCodigoEstudiante
             // 
             this.lblCodigoEstudiante.AutoSize = true;
-            this.lblCodigoEstudiante.Location = new System.Drawing.Point(91, 25);
+            this.lblCodigoEstudiante.Location = new System.Drawing.Point(87, 64);
             this.lblCodigoEstudiante.Name = "lblCodigoEstudiante";
             this.lblCodigoEstudiante.Size = new System.Drawing.Size(13, 13);
             this.lblCodigoEstudiante.TabIndex = 12;
@@ -201,7 +207,7 @@
             // 
             // txtSumaTotal
             // 
-            this.txtSumaTotal.Location = new System.Drawing.Point(674, 148);
+            this.txtSumaTotal.Location = new System.Drawing.Point(674, 101);
             this.txtSumaTotal.Name = "txtSumaTotal";
             this.txtSumaTotal.ReadOnly = true;
             this.txtSumaTotal.Size = new System.Drawing.Size(100, 20);
@@ -210,21 +216,63 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(621, 151);
+            this.lblTotal.Location = new System.Drawing.Point(631, 104);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(37, 13);
             this.lblTotal.TabIndex = 15;
             this.lblTotal.Text = "Total :";
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(468, 148);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 16;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Location = new System.Drawing.Point(682, 33);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(13, 13);
+            this.lblFecha.TabIndex = 17;
+            this.lblFecha.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(682, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Fecha";
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(701, 148);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(75, 23);
+            this.btnImprimir.TabIndex = 19;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click_1);
             // 
             // AdmnistrarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 528);
+            this.Controls.Add(this.btnImprimir);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblFecha);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.txtSumaTotal);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.btnImprimir);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtDescuento);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnAgregar);
@@ -257,10 +305,14 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDescuento;
-        private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label lblCodigoEstudiante;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtSumaTotal;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }
